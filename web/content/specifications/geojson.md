@@ -74,7 +74,7 @@ void main(void)
     writer.setRoundingPrecision(2);
 
     // Print out the features
-    for (auto& feature: fc) {
+    for (auto& feature: fc.getFeatures()) {
 
         // Read the geometry
         const Geometry* geom = feature.getGeometry();
@@ -85,7 +85,7 @@ void main(void)
         // Write all properties
         std::cout << "----------" << std::endl;
         for (const auto& prop : props) {
-            std::cout << prop.first << ": " << prop.second << std::endl;
+            std::cout << prop.first << ": " << prop.second.getString() << std::endl;
         }
 
         // Write WKT feometry
